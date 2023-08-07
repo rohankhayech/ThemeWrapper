@@ -20,11 +20,17 @@ package com.rohankhayech.android.util.themewrapper
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.material.Icon
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material3.*
+import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -45,6 +51,7 @@ import androidx.compose.material3.TextField as M3TextField
 import androidx.compose.material3.OutlinedTextField as M3OutlinedTextField
 import androidx.compose.material3.Icon as M3Icon
 import androidx.compose.material3.MaterialTheme as M3Theme
+import androidx.compose.material3.IconButton as M3IconButton
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
@@ -52,7 +59,12 @@ internal fun M2Components() {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("App") }
+                title = { Text("App") },
+                actions = {
+                    IconButton(onClick = {}) {
+                        Icon(Icons.Default.MoreVert, contentDescription = null)
+                    }
+                }
             )
         },
         floatingActionButton = {
@@ -65,7 +77,8 @@ internal fun M2Components() {
             modifier = Modifier
                 .padding(it)
                 .padding(16.dp)
-                .fillMaxWidth(),
+                .fillMaxWidth()
+                .verticalScroll(rememberScrollState()),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
@@ -119,6 +132,11 @@ internal fun M3Components() {
         topBar = {
             M3TopAppBar(
                 title = { M3Text("App") },
+                actions = {
+                    M3IconButton(onClick = {}) {
+                        M3Icon(imageVector = Icons.Default.MoreVert, contentDescription = null)
+                    }
+                }
             )
         },
         floatingActionButton = {
@@ -131,7 +149,8 @@ internal fun M3Components() {
             Modifier
                 .padding(it)
                 .padding(16.dp)
-                .fillMaxWidth(),
+                .fillMaxWidth()
+                .verticalScroll(rememberScrollState()),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
