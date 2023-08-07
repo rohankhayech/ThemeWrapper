@@ -159,16 +159,16 @@ internal fun M3Components() {
             }
             M3Divider()
             M3ListItem(
-                headlineText = { M3Text("Text") },
-                supportingText = { M3Text("Secondary Text") },
-                overlineText = { M3Text("Overline") },
+                headlineContent = { M3Text("Text") },
+                supportingContent = { M3Text("Secondary Text") },
+                overlineContent = { M3Text("Overline") },
                 trailingContent = { M3Text("Trailing") },
             )
             M3Card(elevation = CardDefaults.elevatedCardElevation()) {
                 M3ListItem(
-                    headlineText = { M3Text("Text") },
-                    supportingText = { M3Text("Secondary Text") },
-                    overlineText = { M3Text("Overline") },
+                    headlineContent = { M3Text("Text") },
+                    supportingContent = { M3Text("Secondary Text") },
+                    overlineContent = { M3Text("Overline") },
                     trailingContent = { M3Text("Trailing") },
                 )
             }
