@@ -9,6 +9,7 @@ import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.compositeOver
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.material.MaterialTheme as M2Theme
@@ -67,7 +68,9 @@ object M3WrapperDefaults {
         onBackground: Color = M2Theme.colors.onBackground,
         surface: Color = M2Theme.colors.surface,
         onSurface: Color = M2Theme.colors.onSurface,
-        surfaceVariant: Color = M2Theme.colors.surface,
+        surfaceVariant: Color = M2Theme.colors.onSurface
+            .copy(alpha = 0.10f)
+            .compositeOver(M2Theme.colors.surface),
         onSurfaceVariant: Color = M2Theme.colors.onSurface,
         surfaceTint: Color = M2Theme.colors.onSurface,
         inverseSurface: Color = M2Theme.colors.onSurface,
