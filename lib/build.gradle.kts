@@ -5,13 +5,14 @@ plugins {
 }
 
 group = "com.github.rohankhayech"
-version = "1.0.0"
+version = "0.1.0"
 
 android {
     namespace = "com.rohankhayech.android.util.themewrapper"
     compileSdk = 33
 
     defaultConfig {
+        minSdk = 24
         aarMetadata {
             minCompileSdk = 24
         }

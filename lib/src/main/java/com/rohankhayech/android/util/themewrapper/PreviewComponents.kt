@@ -32,28 +32,34 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.material3.Scaffold as M3Scaffold
-import androidx.compose.material3.Text as M3Text
-import androidx.compose.material3.TopAppBar as M3TopAppBar
 import androidx.compose.material3.Button as M3Button
-import androidx.compose.material3.TextButton as M3TextButton
-import androidx.compose.material3.OutlinedButton as M3OutlinedButton
-import androidx.compose.material3.FloatingActionButton as M3FloatingActionButton
-import androidx.compose.material3.Switch as M3Switch
-import androidx.compose.material3.Checkbox as M3Checkbox
-import androidx.compose.material3.ListItem as M3ListItem
 import androidx.compose.material3.Card as M3Card
+import androidx.compose.material3.Checkbox as M3Checkbox
 import androidx.compose.material3.Divider as M3Divider
-import androidx.compose.material3.TextField as M3TextField
-import androidx.compose.material3.OutlinedTextField as M3OutlinedTextField
+import androidx.compose.material3.FloatingActionButton as M3FloatingActionButton
 import androidx.compose.material3.Icon as M3Icon
-import androidx.compose.material3.MaterialTheme as M3Theme
 import androidx.compose.material3.IconButton as M3IconButton
+import androidx.compose.material3.ListItem as M3ListItem
+import androidx.compose.material3.MaterialTheme as M3Theme
+import androidx.compose.material3.OutlinedButton as M3OutlinedButton
+import androidx.compose.material3.OutlinedTextField as M3OutlinedTextField
+import androidx.compose.material3.Scaffold as M3Scaffold
+import androidx.compose.material3.Surface as M3Surface
+import androidx.compose.material3.Switch as M3Switch
+import androidx.compose.material3.Text as M3Text
+import androidx.compose.material3.TextButton as M3TextButton
+import androidx.compose.material3.TextField as M3TextField
+import androidx.compose.material3.TopAppBar as M3TopAppBar
 
 @OptIn(ExperimentalMaterialApi::class)
+@Preview
 @Composable
 internal fun M2Components() {
     Scaffold(
@@ -126,6 +132,7 @@ internal fun M2Components() {
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
+@Preview
 @Composable
 internal fun M3Components() {
     M3Scaffold(
@@ -195,6 +202,130 @@ internal fun M3Components() {
             M3OutlinedTextField(label = { M3Text("Label") }, value = "Text", isError = true, onValueChange = {})
         }
     }
+}
+
+@Preview
+@Composable
+internal fun M2Swatch() {
+    Surface {
+        Column(Modifier.padding(16.dp)) {
+            Text("Colors", Modifier.padding(bottom = 8.dp), style = MaterialTheme.typography.subtitle1)
+            Row(Modifier.fillMaxWidth()) {
+                CompositionLocalProvider(LocalTextStyle provides MaterialTheme.typography.subtitle2) {
+                    ColorSwatch(name = "Primary", color = MaterialTheme.colors.primary)
+                    ColorSwatch(name = "Primary Variant", color = MaterialTheme.colors.primaryVariant)
+                    ColorSwatch(name = "Secondary", color = MaterialTheme.colors.secondary)
+                    ColorSwatch(name = "Secondary Variant", color = MaterialTheme.colors.secondaryVariant)
+                }
+            }
+            Row(Modifier.fillMaxWidth()) {
+                CompositionLocalProvider(LocalTextStyle provides MaterialTheme.typography.subtitle2) {
+                    ColorSwatch(name = "Background", color = MaterialTheme.colors.background)
+                    ColorSwatch(name = "Surface", color = MaterialTheme.colors.surface)
+                    ColorSwatch(name = "Error", color = MaterialTheme.colors.error)
+                }
+            }
+            Text("Shapes", Modifier.padding(vertical = 8.dp), style = MaterialTheme.typography.subtitle1)
+            CompositionLocalProvider(LocalContentColor provides MaterialTheme.colors.onSurface.copy(alpha = 0.12f)) {
+                Row(Modifier.fillMaxWidth()) {
+                    ShapeSwatch(MaterialTheme.shapes.small)
+                    ShapeSwatch(MaterialTheme.shapes.medium)
+                    ShapeSwatch(MaterialTheme.shapes.large)
+                }
+            }
+        }
+    }
+}
+
+@Preview
+@Composable
+internal fun M3Swatch() {
+    M3Surface {
+        Column(Modifier.padding(16.dp)) {
+            M3Text("Colors", Modifier.padding(bottom = 8.dp), style = M3Theme.typography.labelLarge)
+            Row(Modifier.fillMaxWidth()) {
+                CompositionLocalProvider(LocalTextStyle provides M3Theme.typography.labelMedium) {
+                    M3ColorSwatch(name = "Primary", color = M3Theme.colorScheme.primary)
+                    M3ColorSwatch(name = "Primary Container", color = M3Theme.colorScheme.primaryContainer)
+                    M3ColorSwatch(name = "Secondary", color = M3Theme.colorScheme.secondary)
+                    M3ColorSwatch(name = "Secondary Container", color = M3Theme.colorScheme.secondaryContainer)
+                }
+            }
+            Row(Modifier.fillMaxWidth()) {
+                CompositionLocalProvider(LocalTextStyle provides M3Theme.typography.labelMedium) {
+                    M3ColorSwatch(name = "Tertiary", color = M3Theme.colorScheme.tertiary)
+                    M3ColorSwatch(name = "Tertiary Container", color = M3Theme.colorScheme.tertiaryContainer)
+                    M3ColorSwatch(name = "Error", color = M3Theme.colorScheme.error)
+                    M3ColorSwatch(name = "Error Container", color = M3Theme.colorScheme.errorContainer)
+                }
+            }
+            Row(Modifier.fillMaxWidth()) {
+                CompositionLocalProvider(LocalTextStyle provides M3Theme.typography.labelMedium) {
+                    M3ColorSwatch(name = "Background", color = M3Theme.colorScheme.background)
+                    M3ColorSwatch(name = "Surface", color = M3Theme.colorScheme.surface)
+                    M3ColorSwatch(name = "Surface Variant", color = M3Theme.colorScheme.surfaceVariant)
+                    M3ColorSwatch(name = "Outline", color = M3Theme.colorScheme.outline)
+                }
+            }
+            M3Text("Shapes", Modifier.padding(vertical = 8.dp), style = M3Theme.typography.labelLarge)
+            CompositionLocalProvider(LocalContentColor provides M3Theme.colorScheme.surfaceVariant) {
+                Row(Modifier.fillMaxWidth()) {
+                    ShapeSwatch(M3Theme.shapes.extraSmall)
+                    ShapeSwatch(M3Theme.shapes.small)
+                    ShapeSwatch(M3Theme.shapes.medium)
+                    ShapeSwatch(M3Theme.shapes.large)
+                    ShapeSwatch(M3Theme.shapes.extraLarge)
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun RowScope.ColorSwatch(
+    name: String,
+    color: Color,
+) {
+    Surface(
+        Modifier
+            .weight(1f)
+            .height(80.dp),
+        color = color
+    ) {
+        Text(text = name, Modifier.padding(8.dp))
+    }
+}
+
+@Composable
+private fun RowScope.M3ColorSwatch(
+    name: String,
+    color: Color,
+) {
+    M3Surface(
+        Modifier
+            .weight(1f)
+            .height(80.dp),
+        color = color
+    ) {
+        CompositionLocalProvider(androidx.compose.material3.LocalTextStyle provides LocalTextStyle.current) {
+            M3Text(text = name, Modifier.padding(8.dp))
+        }
+    }
+}
+
+
+@Composable
+private fun RowScope.ShapeSwatch(
+    shape: Shape,
+) {
+    Surface(
+        Modifier
+            .weight(1f)
+            .height(40.dp)
+            .padding(horizontal = 8.dp),
+        color = LocalContentColor.current,
+        shape = shape
+    ) {}
 }
 
 @Composable
