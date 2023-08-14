@@ -1,15 +1,20 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("maven-publish")
 }
+
+group = "com.github.rohankhayech"
+version = "1.0.0"
 
 android {
     namespace = "com.rohankhayech.android.util.themewrapper"
     compileSdk = 33
 
     defaultConfig {
-        minSdk = 24
-
+        aarMetadata {
+            minCompileSdk = 24
+        }
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
@@ -18,6 +23,13 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+        }
+    }
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+            withJavadocJar()
         }
     }
 
@@ -36,6 +48,20 @@ android {
 
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
+    }
+}
+
+publishing {
+    publications {
+        register<MavenPublication>("release") {
+            groupId = project.group.toString()
+            artifactId = rootProject.name
+            version = project.version.toString()
+
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
     }
 }
 
