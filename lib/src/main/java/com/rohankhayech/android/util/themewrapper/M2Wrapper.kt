@@ -230,3 +230,12 @@ private fun ExactWrapperColors() {
         }
     }
 }
+
+@Preview(name = "M2 Colors")
+@Preview(name = "M3 Colors", uiMode = UI_MODE_NIGHT_YES)
+@Composable
+private fun M2Colors() {
+    M2AdaptiveTheme {
+        M2Swatch()
+    }
+}

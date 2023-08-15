@@ -307,7 +307,7 @@ private fun M2Colors() {
     }
 }
 
-@Preview(name = "M2 Colors in Wrapper")
+@Preview(name = "M3 Colors in Wrapper")
 @Preview(name = "M3 Colors in Wrapper - Dark", uiMode = UI_MODE_NIGHT_YES)
 @Composable
 private fun WrapperColors() {
@@ -318,7 +318,7 @@ private fun WrapperColors() {
     }
 }
 
-@Preview(name = "M2 Colors in Exact Wrapper")
+@Preview(name = "M3 Colors in Exact Wrapper")
 @Preview(name = "M3 Colors in Exact Wrapper - Dark", uiMode = UI_MODE_NIGHT_YES)
 @Composable
 private fun ExactWrapperColors() {
@@ -326,5 +326,14 @@ private fun ExactWrapperColors() {
         M3Wrapper(colorScheme = M3WrapperDefaults.exactColorScheme()) {
             M3Swatch()
         }
+    }
+}
+
+@Preview(name = "M3 Colors")
+@Preview(name = "M3 Colors - Dark", uiMode = UI_MODE_NIGHT_YES)
+@Composable
+private fun M3Colors() {
+    M3AdaptiveTheme {
+        M3Swatch()
     }
 }
