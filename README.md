@@ -43,7 +43,7 @@ MaterialTheme { // Material 2 Theme
 See the installation instructions for [AndroidUtils](https://github.com/rohankhayech/AndroidUtils).
 
 ## License and Copyright
-Copyright © 2023 Rohan Khayech
+Copyright © 2025 Rohan Khayech
 The library is licensed under the **Apache License 2.0**:
 
 ```
