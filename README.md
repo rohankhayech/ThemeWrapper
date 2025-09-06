@@ -4,6 +4,9 @@ Library for Jetpack Compose providing wrappers to apply **Material 3** (M3) them
 
 **Author:** Rohan Khayech
 
+> [!WARNING]
+> This repository and standalone library has been deprecated. Please use the `theme-wrapper` module in [AndroidUtils](https://github.com/rohankhayech/AndroidUtils) instead.
+
 ## Features
 - Provides wrapper composables that take the color, typography and shape values from the applied M2/M3 theme and maps them onto a M3/M2 theme.
 
