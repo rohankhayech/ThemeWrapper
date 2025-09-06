@@ -40,18 +40,14 @@ MaterialTheme { // Material 2 Theme
 ```
 
 ## Installation
-The library is avaliable as a dependency via `Jitpack.io`:
-
-[![](https://jitpack.io/v/rohankhayech/ThemeWrapper.svg?style=flat-square)](https://jitpack.io/#rohankhayech/ThemeWrapper)
-
-Alternativly you can download the `.aar` file for the latest release [here](https://github.com/rohankhayech/ThemeWrapper/releases/latest), and add it to your project manually.
+See the installation instructions for [AndroidUtils](https://github.com/rohankhayech/AndroidUtils).
 
 ## License and Copyright
 Copyright © 2023 Rohan Khayech
 The library is licensed under the **Apache License 2.0**:
 
 ```
-Copyright 2023 Rohan Khayech
+Copyright 2025 Rohan Khayech
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.
 
