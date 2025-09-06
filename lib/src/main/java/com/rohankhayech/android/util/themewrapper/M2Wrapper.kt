@@ -7,7 +7,10 @@ package com.rohankhayech.android.util.themewrapper
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.shape.CornerBasedShape
-import androidx.compose.material.*
+import androidx.compose.material.Colors
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Shapes
+import androidx.compose.material.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
@@ -16,7 +19,7 @@ import androidx.compose.material3.MaterialTheme as M3Theme
 
 /**
  * Wraps Material 2 composable content with a M2 Theme derived from the current M3 theme.
- * 
+ *
  * @param colors The colors to use for the M2 theme.
  * @param typography The typography to use for the M2 theme.
  * @param shapes The shapes to use for the M2 theme.
@@ -24,6 +27,7 @@ import androidx.compose.material3.MaterialTheme as M3Theme
  *
  * @author Rohan Khayech
  */
+@Deprecated("Moved to the AndroidUtils library.")
 @Composable
 fun M2Wrapper(
     colors: Colors = M2WrapperDefaults.colors(),
